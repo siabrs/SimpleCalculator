@@ -8,9 +8,18 @@
 import SwiftUI
 
 struct ContentView: View {
+    @State private var firstNumber = ""
+    @State private var secondNumber = ""
+
     var body: some View {
         NavigationView {
             Form {
+                HStack {
+                    TextField("First Number", text: $firstNumber)
+                    Divider()
+                    TextField("Second Number", text: $secondNumber)
+                }
+                .multilineTextAlignment(.center)
             }
             .navigationTitle("Calculator")
         }
