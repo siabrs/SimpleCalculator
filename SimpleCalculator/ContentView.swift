@@ -10,6 +10,8 @@ import SwiftUI
 struct ContentView: View {
     @State private var firstNumber = ""
     @State private var secondNumber = ""
+    @State private var action = "➖"
+    var actions = ["➕", "➖", "➗", "✖️"]
 
     var body: some View {
         NavigationView {
@@ -20,6 +22,14 @@ struct ContentView: View {
                     TextField("Second Number", text: $secondNumber)
                 }
                 .multilineTextAlignment(.center)
+
+                Picker("Actions:", selection: $action) {
+                    ForEach(actions, id: \.self) {
+                        Text($0)
+                    }
+                }
+                .pickerStyle(.segmented)
+                .padding(3)
             }
             .navigationTitle("Calculator")
         }
