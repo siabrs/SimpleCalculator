@@ -70,7 +70,7 @@ struct ContentView: View {
                 .padding(3)
                 
                 Section {
-                    Text(String(format: "%.2f", getResult()))
+                    Text(String(format: "%.2f", getResult().isNaN == true ? 0.00 :getResult()))
                 } header: {
                     Text("YOUR RESULT:")
                         .font(.headline)
