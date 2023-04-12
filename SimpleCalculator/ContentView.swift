@@ -62,8 +62,11 @@ struct ContentView: View {
                         Text($0)
                     }
                 }
+                .colorMultiply(Color(red: 0.96, green: 0.67, blue: 0.91))
                 .pickerStyle(.segmented)
-                .background(Color(red: 0.8, green: 0.3, blue: 0.8, opacity: 0.2))
+                .onAppear {
+                    UISegmentedControl.appearance().backgroundColor = UIColor(red: 0.988, green: 0.964, blue: 0.984, alpha: 0.17)
+                }
                 .padding(3)
                 
                 Section {
