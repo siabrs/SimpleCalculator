@@ -10,6 +10,7 @@ import SwiftUI
 struct ContentView: View {
     @State private var firstNumber = ""
     @State private var secondNumber = ""
+    @FocusState private var amountIsFocused: Bool
     @State private var action = "➖"
     var actions = ["➕", "➖", "✖️", "➗"]
 
@@ -53,6 +54,8 @@ struct ContentView: View {
                     TextField("Second Number", text: $secondNumber)
                 }
                 .multilineTextAlignment(.center)
+                .keyboardType(.decimalPad)
+                .focused($amountIsFocused)
 
                 Picker("Actions:", selection: $action) {
                     ForEach(actions, id: \.self) {
@@ -72,6 +75,17 @@ struct ContentView: View {
                 }
             }
             .navigationTitle("Simple Calculator")
+            .toolbar {
+                ToolbarItemGroup(placement: .keyboard) {
+                    Spacer()
+
+                    Button("Done") {
+                        amountIsFocused = false
+                    }
+                    .foregroundColor(Color(red: 0.8, green: 0.3, blue: 0.8, opacity: 0.45))
+                    .bold()
+                }
+            }
         }
     }
 }
