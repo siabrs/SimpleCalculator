@@ -71,7 +71,7 @@ struct ContentView: View {
                         .foregroundColor(Color(red: 0.8, green: 0.3, blue: 0.8, opacity: 0.45))
                 }
             }
-            .navigationTitle("Calculator")
+            .navigationTitle("Simple Calculator")
         }
     }
 }
